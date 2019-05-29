@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <meta charset="utf-8" />
+  <style>
+	html, body {
+	margin: 0;
+	padding: 0;
+	}
+	
+	canvas {
+	display: block;
+	}
+  </style>
+</head>
+
+<body>
+  <script></script>
+  <script>
+    let x = 0;
+      let y = 0;
+      let scale = 10;
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        background(0);
+      }
+
+      function draw() {
+        let r = random(0, 255);
+        let g = random(0, 255);
+        let b = random(0, 255);
+
+        stroke(r, g, b);
+
+        if (random(0, 1) > 0.5) {
+          line(x, y, x + scale, y + scale);
+        } else {
+          line(x + scale, y, x, y + scale);
+        }
+        if (x < width) {
+          x += scale;
+        } else {
+          x = 0;
+          y += scale;
+        }
+
+        if (y > height) {
+          noloop();
+        }
+
+      }
+  </script>
+</body>
+
+</html>
